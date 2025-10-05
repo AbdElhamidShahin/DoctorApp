@@ -18,7 +18,7 @@ abstract class AppRouter {
       GoRoute(
         path: routes.loginScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return const LoginScreen();
+          return LoginScreen();
         },
       ),
     ],
