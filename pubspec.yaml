@@ -33,11 +33,18 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   go_router: ^16.2.4
   flutter_svg: ^2.2.1
-  flutter_native_splash: ^2.4.6
+  cupertino_icons: ^1.0.8            # أيقونات على طراز iOS
+  dio: ^5.9.0                         # لعمل طلبات HTTP
+  retrofit: ^4.0.1                   # بناء واجهات API بطريقة منظمة
+  json_annotation: ^4.9.0    # توليد كود تحويل JSON ↔ كائنات
+  freezed_annotation: ^2.4.0         # أنوتيشن لـ freezed
+  logger: ^1.3.0                      # لتسجيل (logging) منظم
+  pretty_dio_logger: ^1.4.0          # لعرض طلبات Dio بشكل جميل
+  easy_localization: ^3.0.8          # لدعم الترجمة واللغات
+  flutter_native_splash: ^2.4.6     # لصورة البداية (Splash)
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +56,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  build_runner: ^2.5.0
+  freezed: ^2.4.0
+  json_serializable: ^6.6.1
+  retrofit_generator: ^8.0.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
