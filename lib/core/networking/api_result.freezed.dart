@@ -16,23 +16,22 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ApiResult<T> {
-  T get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(T data) failure,
+    required TResult Function(ErrorHandler erorHandler) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(T data)? failure,
+    TResult? Function(ErrorHandler erorHandler)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(T data)? failure,
+    TResult Function(ErrorHandler erorHandler)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,12 +54,6 @@ mixin _$ApiResult<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ApiResultCopyWith<T, ApiResult<T>> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -68,8 +61,6 @@ abstract class $ApiResultCopyWith<T, $Res> {
   factory $ApiResultCopyWith(
           ApiResult<T> value, $Res Function(ApiResult<T>) then) =
       _$ApiResultCopyWithImpl<T, $Res, ApiResult<T>>;
-  @useResult
-  $Res call({T data});
 }
 
 /// @nodoc
@@ -84,27 +75,13 @@ class _$ApiResultCopyWithImpl<T, $Res, $Val extends ApiResult<T>>
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_value.copyWith(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res>
-    implements $ApiResultCopyWith<T, $Res> {
+abstract class _$$SuccessImplCopyWith<T, $Res> {
   factory _$$SuccessImplCopyWith(
           _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
       __$$SuccessImplCopyWithImpl<T, $Res>;
-  @override
   @useResult
   $Res call({T data});
 }
@@ -170,7 +147,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(T data) failure,
+    required TResult Function(ErrorHandler erorHandler) failure,
   }) {
     return success(data);
   }
@@ -179,7 +156,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(T data)? failure,
+    TResult? Function(ErrorHandler erorHandler)? failure,
   }) {
     return success?.call(data);
   }
@@ -188,7 +165,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(T data)? failure,
+    TResult Function(ErrorHandler erorHandler)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -232,26 +209,22 @@ class _$SuccessImpl<T> implements Success<T> {
 abstract class Success<T> implements ApiResult<T> {
   const factory Success(final T data) = _$SuccessImpl<T>;
 
-  @override
   T get data;
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FailureImplCopyWith<T, $Res>
-    implements $ApiResultCopyWith<T, $Res> {
+abstract class _$$FailureImplCopyWith<T, $Res> {
   factory _$$FailureImplCopyWith(
           _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
       __$$FailureImplCopyWithImpl<T, $Res>;
-  @override
   @useResult
-  $Res call({T data});
+  $Res call({ErrorHandler erorHandler});
 }
 
 /// @nodoc
@@ -267,13 +240,13 @@ class __$$FailureImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? erorHandler = null,
   }) {
     return _then(_$FailureImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
+      null == erorHandler
+          ? _value.erorHandler
+          : erorHandler // ignore: cast_nullable_to_non_nullable
+              as ErrorHandler,
     ));
   }
 }
@@ -281,14 +254,14 @@ class __$$FailureImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$FailureImpl<T> implements Failure<T> {
-  const _$FailureImpl(this.data);
+  const _$FailureImpl(this.erorHandler);
 
   @override
-  final T data;
+  final ErrorHandler erorHandler;
 
   @override
   String toString() {
-    return 'ApiResult<$T>.failure(data: $data)';
+    return 'ApiResult<$T>.failure(erorHandler: $erorHandler)';
   }
 
   @override
@@ -296,12 +269,12 @@ class _$FailureImpl<T> implements Failure<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FailureImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.erorHandler, erorHandler) ||
+                other.erorHandler == erorHandler));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, erorHandler);
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.
@@ -315,29 +288,29 @@ class _$FailureImpl<T> implements Failure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(T data) failure,
+    required TResult Function(ErrorHandler erorHandler) failure,
   }) {
-    return failure(data);
+    return failure(erorHandler);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(T data)? failure,
+    TResult? Function(ErrorHandler erorHandler)? failure,
   }) {
-    return failure?.call(data);
+    return failure?.call(erorHandler);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(T data)? failure,
+    TResult Function(ErrorHandler erorHandler)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(data);
+      return failure(erorHandler);
     }
     return orElse();
   }
@@ -375,14 +348,12 @@ class _$FailureImpl<T> implements Failure<T> {
 }
 
 abstract class Failure<T> implements ApiResult<T> {
-  const factory Failure(final T data) = _$FailureImpl<T>;
+  const factory Failure(final ErrorHandler erorHandler) = _$FailureImpl<T>;
 
-  @override
-  T get data;
+  ErrorHandler get erorHandler;
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
