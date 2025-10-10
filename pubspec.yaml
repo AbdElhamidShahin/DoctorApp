@@ -45,6 +45,8 @@ dependencies:
   pretty_dio_logger: ^1.4.0          # لعرض طلبات Dio بشكل جميل
   easy_localization: ^3.0.8          # لدعم الترجمة واللغات
   flutter_native_splash: ^2.4.6     # لصورة البداية (Splash)
+  flutter_bloc: ^9.1.1
+  get_it: ^8.2.0
 
 dev_dependencies:
   flutter_test:
