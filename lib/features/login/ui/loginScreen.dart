@@ -1,21 +1,18 @@
 import 'package:doctor_app_flutter/core/theming/styles.dart';
+import 'package:doctor_app_flutter/features/login/data/model/login_request_body.dart';
+import 'package:doctor_app_flutter/features/login/logic/cubit/cubit.dart';
 import 'package:doctor_app_flutter/features/login/ui/wideget/already_have_account_text.dart';
 import 'package:doctor_app_flutter/features/login/ui/wideget/app_text_button.dart';
+import 'package:doctor_app_flutter/features/login/ui/wideget/email_and_password.dart';
+import 'package:doctor_app_flutter/features/login/ui/wideget/login_bloc_listner.dart';
 import 'package:doctor_app_flutter/features/login/ui/wideget/terms_and_conditions_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../core/theming/colors.dart';
-import '../../../core/widgets/app_text_form_feild.dart';
 
-class LoginScreen extends StatefulWidget {
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final formKey = GlobalKey<FormState>();
+class LoginScreen extends StatelessWidget {
   bool isObscureText = true;
 
   @override
@@ -39,59 +36,46 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: textStyle14Login,
                 ),
                 SizedBox(height: 36.h),
-                Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      AppTextFormFeild(hintText: "Email"),
-                      SizedBox(height: 18.h),
-                      AppTextFormFeild(
-                        hintText: "PassWord",
-                        isObscureText: isObscureText,
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isObscureText = !isObscureText;
-                            });
-                          },
 
-                          child: Icon(
-                            isObscureText
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(height: 24.h),
-                      Align(
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: Text(
-                          "Forgot Password?",
-                          style: textStyle13.copyWith(
-                            color: AppColors.blueMain,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 40.h),
-
-                      AppTextButton(
-                        buttonText: "Login",
-                        textStyle: textStyle16,
-                        onPressed: () {},
-                      ),
-                      SizedBox(height: 24.h),
-                      TermsAndConditionsText(),
-
-                      SizedBox(height: 60.h),
-                      AlreadyHaveAccountText(),
-                    ],
+                EmailAndPassword(),
+                SizedBox(height: 24.h),
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: Text(
+                    "Forgot Password?",
+                    style: textStyle13.copyWith(color: AppColors.blueMain),
                   ),
                 ),
+                SizedBox(height: 40.h),
+
+                AppTextButton(
+                  buttonText: "Login",
+                  textStyle: textStyle16,
+                  onPressed: () {
+                    validateThenLogin(context);
+                  },
+                ),
+                SizedBox(height: 24.h),
+                TermsAndConditionsText(),
+
+                SizedBox(height: 60.h),
+                AlreadyHaveAccountText(),
+                const LoginBlocListener()
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+void validateThenLogin(BuildContext context) {
+  if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    context.read<LoginCubit>().emitLoginState(
+      LoginRequestBody(
+        email: context.read<LoginCubit>().emailController.text,
+        password: context.read<LoginCubit>().passwordController.text,
       ),
     );
   }

@@ -2,12 +2,19 @@ import 'package:doctor_app_flutter/core/networking/api_error_handler.dart';
 import 'package:doctor_app_flutter/core/networking/api_service.dart';
 import 'package:doctor_app_flutter/features/login/data/repos/repos.dart';
 import 'package:doctor_app_flutter/features/login/logic/cubit/state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/model/login_request_body.dart';
 
+
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepos _loginRepos;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+
+
 
   LoginCubit(this._loginRepos) : super(LoginState.initial());
 

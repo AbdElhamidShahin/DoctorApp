@@ -11,6 +11,7 @@ Future<void> setupGetIt() async {
   /// dio
   Dio dio = await DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+
   ///login
   getIt.registerLazySingleton<LoginRepos>(() => LoginRepos(getIt()));
   getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));

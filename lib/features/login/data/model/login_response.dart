@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'login_response.g.dart';
-@JsonSerializable()
 
+@JsonSerializable()
 class LoginResponse {
   String? message;
   @JsonKey(name: "data")
@@ -16,9 +16,6 @@ class LoginResponse {
 
 @JsonSerializable()
 class UserData {
-
-
-
   String? tokin;
   @JsonKey(name: "username")
   String? userName;
