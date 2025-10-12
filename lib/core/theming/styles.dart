@@ -33,3 +33,8 @@ TextStyle textStyle13 = TextStyle(
   fontWeight: FontWeight.w400,
   color: AppColors.gray,
 );
+TextStyle textStyle15 = TextStyle(
+  fontSize: 15.sp,
+  fontWeight: FontWeight.w500,
+  color: AppColors.darkBlue,
+);
