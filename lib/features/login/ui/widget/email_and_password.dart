@@ -1,6 +1,6 @@
 import 'package:doctor_app_flutter/core/helpers/app_regex.dart';
 import 'package:doctor_app_flutter/features/login/logic/cubit/cubit.dart';
-import 'package:doctor_app_flutter/features/login/ui/wideget/password_validations.dart';
+import 'package:doctor_app_flutter/features/login/ui/widget/password_validations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
