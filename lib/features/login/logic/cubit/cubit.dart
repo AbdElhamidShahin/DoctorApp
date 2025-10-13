@@ -7,20 +7,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/model/login_request_body.dart';
 
-
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepos _loginRepos;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-
-
   LoginCubit(this._loginRepos) : super(LoginState.initial());
 
-  void emitLoginState(LoginRequestBody loginRequestBody) async {
+  void emitLoginState() async {
     emit(LoginState.Loading());
-    final response = await _loginRepos.login(loginRequestBody);
+    final response = await _loginRepos.login(
+      LoginRequestBody(
+        email: emailController.text,
+        password: passwordController.text,
+      ),
+    );
     response.when(
       success: (loginResponse) {
         emit(LoginState.success(loginResponse));

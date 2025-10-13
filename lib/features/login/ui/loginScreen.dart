@@ -1,11 +1,10 @@
 import 'package:doctor_app_flutter/core/theming/styles.dart';
-import 'package:doctor_app_flutter/features/login/data/model/login_request_body.dart';
 import 'package:doctor_app_flutter/features/login/logic/cubit/cubit.dart';
-import 'package:doctor_app_flutter/features/login/ui/wideget/already_have_account_text.dart';
-import 'package:doctor_app_flutter/features/login/ui/wideget/app_text_button.dart';
-import 'package:doctor_app_flutter/features/login/ui/wideget/email_and_password.dart';
-import 'package:doctor_app_flutter/features/login/ui/wideget/login_bloc_listner.dart';
-import 'package:doctor_app_flutter/features/login/ui/wideget/terms_and_conditions_text.dart';
+import 'package:doctor_app_flutter/features/login/ui/widget/app_text_button.dart';
+import 'package:doctor_app_flutter/features/login/ui/widget/dont_have_account_text.dart';
+import 'package:doctor_app_flutter/features/login/ui/widget/email_and_password.dart';
+import 'package:doctor_app_flutter/features/login/ui/widget/login_bloc_listner.dart';
+import 'package:doctor_app_flutter/features/login/ui/widget/terms_and_conditions_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,7 +59,7 @@ class LoginScreen extends StatelessWidget {
 
                 SizedBox(height: 60.h),
                 AlreadyHaveAccountText(),
-                const LoginBlocListener()
+                const LoginBlocListener(),
               ],
             ),
           ),
@@ -72,11 +71,6 @@ class LoginScreen extends StatelessWidget {
 
 void validateThenLogin(BuildContext context) {
   if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-    context.read<LoginCubit>().emitLoginState(
-      LoginRequestBody(
-        email: context.read<LoginCubit>().emailController.text,
-        password: context.read<LoginCubit>().passwordController.text,
-      ),
-    );
+    context.read<LoginCubit>().emitLoginState();
   }
 }
