@@ -1,7 +1,7 @@
 import 'package:doctor_app_flutter/core/theming/colors.dart';
 import 'package:doctor_app_flutter/core/theming/styles.dart';
-import 'package:doctor_app_flutter/features/login/logic/cubit/cubit.dart';
-import 'package:doctor_app_flutter/features/login/logic/cubit/state.dart';
+import 'package:doctor_app_flutter/features/login/logic/cubit/login_cubit.dart';
+import 'package:doctor_app_flutter/features/login/logic/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

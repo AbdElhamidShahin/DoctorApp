@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'state.freezed.dart';
+part 'login_state.freezed.dart';
 
 @Freezed()
 class LoginState<T> with _$LoginState {

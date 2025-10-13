@@ -1,5 +1,5 @@
 import 'package:doctor_app_flutter/core/theming/styles.dart';
-import 'package:doctor_app_flutter/features/login/logic/cubit/cubit.dart';
+import 'package:doctor_app_flutter/features/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_app_flutter/features/login/ui/widget/app_text_button.dart';
 import 'package:doctor_app_flutter/features/login/ui/widget/dont_have_account_text.dart';
 import 'package:doctor_app_flutter/features/login/ui/widget/email_and_password.dart';
