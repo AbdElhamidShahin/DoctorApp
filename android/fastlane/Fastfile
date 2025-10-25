@@ -1,4 +1,4 @@
-
+load_dotenv
 default_platform(:android)
 
 platform :android do
@@ -8,7 +8,7 @@ platform :android do
       sh "flutter build apk --release --flavor Production -t lib/main_production.dart --no-tree-shake-icons"
       firebase_app_distribution(
           app: "1:553798534295:android:20312b357ccea0027355d2",
-          firebase_cli_token: "1//03ZnB7VRVDot5CgYIARAAGAMSNwF-L9IrK7jljdN5r-c6iJ825lsVqMF7g13iL1nAwq57p8SYxC7B5x2JS2xRqOca9ppXk-4IGqo",
+          firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
           android_artifact_path:"../build/app/outputs/flutter-apk/app-production-release.apk",
           testers: "abdoshahen2005@gmail.com",
           release_notes:"First Fastlane Firebase Distribution"
