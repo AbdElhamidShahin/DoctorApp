@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
     id("kotlin-android")
     id("dev.flutter.flutter-gradle-plugin")
 }
@@ -10,19 +13,18 @@ android {
     ndkVersion = "27.0.12077973"
 
     compileOptions {
-        // --- تم تحديث هذا القسم إلى Java 17 ---
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+
     }
 
     kotlinOptions {
-        // --- وتم تحديث هذا القسم إلى Java 17 ---
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
         applicationId = "com.example.doctor_app"
-        minSdk = flutter.minSdkVersion
+        minSdk =35
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -43,8 +45,6 @@ android {
             applicationIdSuffix = ".dev"
             resValue("string", "app_name", "DocDoc development")
         }
-        // يمكنك إضافة flavor الـ staging هنا إذا أردت
-        // create("staging") { ... }
     }
 
 
