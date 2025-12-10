@@ -3,11 +3,11 @@ name: Android Fastlane with Firebase App Distribution Workflow
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   distribute_to_firebase:
-    runs-on: ubuntu-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout my repo code
         uses: actions/checkout@v2
