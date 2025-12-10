@@ -32,7 +32,7 @@ jobs:
       - name: Add Linux platform to Gemfile.lock
         run: /opt/hostedtoolcache/Ruby/3.2.3/x64/bin/bundle lock --add-platform x86_64-linux
         working-directory: android
-      
+
 
       - name: Build and Distribute App
         env:
