@@ -6,14 +6,32 @@ platform :android do
       sh "flutter clean"
       sh "flutter build apk --release --flavor development -t lib/main_development.dart --no-tree-shake-icons"
 
+      # تحديد المسار بشكل ديناميكي
+      apk_path = "build/app/outputs/flutter-apk/app-development-release.apk"
+
+      # التحقق من وجود الملف
+      unless File.exist?(apk_path)
+        UI.error("APK file not found at: #{apk_path}")
+        UI.important("Searching for APK files...")
+
+        # البحث عن أي ملف APK في المجلد
+        apk_files = Dir.glob("build/app/outputs/flutter-apk/*.apk")
+        if apk_files.any?
+          UI.success("Found APK files: #{apk_files}")
+          apk_path = apk_files.first
+        else
+          UI.user_error!("No APK files found!")
+        end
+      end
+
+      UI.success("Using APK: #{apk_path}")
+
       firebase_app_distribution(
           app: "1:553798534295:android:20312b357ccea0027355d2",
           firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
-          apk_path: "build/app/outputs/flutter-apk/app-Development-release.apk",
-
+          apk_path: apk_path,  # استخدام المتغير
           testers: "abdoshahen2005@gmail.com",
           release_notes: "First Fastlane Firebase Distribution"
       )
   end
-
 end
