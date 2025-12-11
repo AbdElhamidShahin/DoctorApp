@@ -1,48 +1,20 @@
-# Fastfile
-
 default_platform(:android)
 
-# تعريف الإجراءات الخاصة بمنصة Android
 platform :android do
-  
   desc "Lane for android Firebase App Distribution"
   lane :firebase_distribution do
-    
-    # 1. تنظيف وبناء المشروع (Build)
-    UI.message("Starting Flutter build for development flavor...")
-    
-    # تنفيذ أوامر Shell
-    sh "flutter clean"
-    sh "flutter build apk --release --flavor development -t lib/main_development.dart --no-tree-shake-icons"
+      sh "flutter clean"
+      sh "flutter build apk --release --flavor Development -t lib/main_development.dart"
 
-    # 2. تحديد مسار ملف APK
-    # ملاحظة: يتم تغيير المسار (Directory) مؤقتًا إلى جذر مشروع Flutter 
-    # (الخروج من مجلد 'android' إذا كان الـ Fastfile موجوداً بداخله)
-    Dir.chdir(File.expand_path("../", __dir__)) do
-      
-      # البحث عن ملفات APK الناتجة
-      apk_files = Dir["build/app/outputs/flutter-apk/*.apk"]
-
-      if apk_files.empty?
-        UI.user_error!("No APK files found! Please check your build process.")
-      end
-
-      # اختيار أول ملف APK تم العثور عليه
-      apk_path = apk_files.first
-      UI.message("✅ Found APK at #{apk_path}")
-
-      # 3. توزيع التطبيق عبر Firebase App Distribution
-      UI.message("Uploading to Firebase App Distribution...")
-      
       firebase_app_distribution(
-        app: "1:553798534295:android:20312b357ccea0027355d2", # استبدلها بـ App ID الخاص بك
-        firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],        # يتم الحصول على التوكن من متغيرات البيئة
-        apk_path: apk_path,
-        testers: "abdoshahen2005@gmail.com",
-        release_notes: "First Fastlane Firebase Distribution"
+          app: "1:553798534295:android:20312b357ccea0027355d2",
+          firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+          apk_path: "build/app/outputs/flutter-apk/app-development-release.apk",
+          apk_path: "build/app/outputs/flutter-apk/app-development-release.apk",  # <<< صحّحت المسار هنا
+
+          testers: "abdoshahen2005@gmail.com",
+          release_notes: "First Fastlane Firebase Distribution"
       )
-      
-      UI.success("App successfully distributed to Firebase!")
-    end # نهاية كتلة Dir.chdir
-  end # نهاية الممر :firebase_distribution
-end # نهاية المنصة :androidر
+  end
+
+end
