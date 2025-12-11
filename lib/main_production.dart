@@ -17,5 +17,5 @@ void main() async {
   runApp(const DocApp());
 }
 // flutter build apk --flavor Production -t lib/main_production.dart
-//flutter build apk --release --flavor Production -t lib/main_production.dart
+//flutter build apk --release --flavor Development -t lib/main_development.dart
 //fastlane android firebase_distribution
