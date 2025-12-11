@@ -11,11 +11,9 @@ platform :android do
           firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
           android_artifact_type: "APK",
           android_artifact_path: "../build/app/outputs/flutter-apk/app-development-release.apk",
-
           testers: "abdoshahen2005@gmail.com",
           release_notes: "First Fastlane Firebase Distribution"
       )
   end
-
-
 end
+
