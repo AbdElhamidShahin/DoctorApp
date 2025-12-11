@@ -6,7 +6,6 @@ default_platform(:android)
 # تعريف الإجراءات الخاصة بمنصة Android
 platform :android do
   
-  # وصف الممر (Lane)
   desc "Lane for android Firebase App Distribution"
   lane :firebase_distribution do
     
