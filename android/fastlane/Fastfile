@@ -1,6 +1,5 @@
 # Fastfile
 
-# تحديد المنصة الافتراضية للمشروع
 default_platform(:android)
 
 # تعريف الإجراءات الخاصة بمنصة Android
