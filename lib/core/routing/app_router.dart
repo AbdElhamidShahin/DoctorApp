@@ -13,7 +13,7 @@ import '../../features/sign_up/ui/sign_up_screen.dart';
 
 abstract class AppRouter {
   static final router = GoRouter(
-    initialLocation: routes.onBoardingScreen,
+    initialLocation: routes.HomeScreen,
     routes: [
       GoRoute(
         path: routes.onBoardingScreen,

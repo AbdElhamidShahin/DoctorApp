@@ -37,4 +37,39 @@ TextStyle textStyle15 = TextStyle(
   fontSize: 15.sp,
   fontWeight: FontWeight.w500,
   color: AppColors.darkBlue,
+);TextStyle textStyle18BoldBlack = TextStyle(
+  fontSize: 18.sp,
+  fontWeight: FontWeight.w700,
+  color: AppColors.darkBlue,
+);TextStyle textStyle11RegularGray = TextStyle(
+  fontSize: 11.sp,
+  fontWeight: FontWeight.w400,
+  color: AppColors.graydark,
+);
+TextStyle textStyle18WhiteMedium = TextStyle(
+  fontSize: 18.sp,
+  fontWeight: FontWeight.w500,
+  color: Colors.white,
+);
+
+
+TextStyle textStyle12BlueRegular = TextStyle(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.w400,
+  color: AppColors.blueMain,
+);
+TextStyle textStyle18DarkBlueSemiBold = TextStyle(
+  fontSize: 18.sp,
+  fontWeight: FontWeight.w600,
+  color: AppColors.darkBlue,
+);
+TextStyle textStyle16DarkBlueBold = TextStyle(
+  fontSize: 16.sp,
+  fontWeight: FontWeight.w700,
+  color: AppColors.darkBlue,
+);
+TextStyle textStyle12grayMiddle = TextStyle(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.w500,
+  color: AppColors.gray,
 );

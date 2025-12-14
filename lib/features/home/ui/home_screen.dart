@@ -1,3 +1,8 @@
+import 'package:doctor_app_flutter/features/home/ui/widgets/DoctorsSpecialitySeeAll.dart';
+import 'package:doctor_app_flutter/features/home/ui/widgets/custom_top_bar_ohme.dart';
+import 'package:doctor_app_flutter/features/home/ui/widgets/doctors_blue_container.dart';
+import 'package:doctor_app_flutter/features/home/ui/widgets/doctors_list_view.dart';
+import 'package:doctor_app_flutter/features/home/ui/widgets/doctors_speciality_list_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,15 +11,21 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text("Home Screen"),
-      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(children: [
 
-      // create a blue container with centered text
-      body: Container(
-        child: const Center(
-          child: Text("Hello, World!", style: TextStyle(fontSize: 24)),
+            CustomTopBarHome(),
+            DoctorsBlueContainer(),
+            SizedBox(height: 24,),
+             DoctorsSpecialitySeeAll(),
+            SizedBox(height: 18,),
+             DoctorsSpecialityListView(),
+            SizedBox(height: 8,),
+             DoctorsListView(),
+
+          ]),
         ),
       ),
     );
