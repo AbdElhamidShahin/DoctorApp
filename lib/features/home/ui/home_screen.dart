@@ -1,3 +1,4 @@
+import 'package:doctor_app_flutter/features/home/ui/widgets/DoctorsSpecialitySeeAll.dart';
 import 'package:doctor_app_flutter/features/home/ui/widgets/custom_top_bar_ohme.dart';
 import 'package:doctor_app_flutter/features/home/ui/widgets/doctors_blue_container.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,12 @@ class HomeScreen extends StatelessWidget {
 
             CustomTopBarHome(),
             DoctorsBlueContainer(),
+            SizedBox(height: 24,),
+             DoctorsSpecialitySeeAll(),
+            // verticalSpace(18),
+            // const DoctorsSpecialityListView(),
+            // verticalSpace(8),
+            // const DoctorsListView(),
 
           ]),
         ),

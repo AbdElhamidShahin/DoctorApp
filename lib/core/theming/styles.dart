@@ -58,3 +58,8 @@ TextStyle textStyle12BlueRegular = TextStyle(
   fontWeight: FontWeight.w400,
   color: AppColors.blueMain,
 );
+TextStyle textStyle18DarkBlueSemiBold = TextStyle(
+  fontSize: 18.sp,
+  fontWeight: FontWeight.w600,
+  color: AppColors.darkBlue,
+);

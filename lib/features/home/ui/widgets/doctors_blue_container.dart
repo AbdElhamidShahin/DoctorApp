@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/theming/styles.dart';
 
 class DoctorsBlueContainer extends StatelessWidget {
@@ -46,12 +45,12 @@ class DoctorsBlueContainer extends StatelessWidget {
                     child: Text('Find Nearby', style: textStyle12BlueRegular),
                   ),
                 ),
-    SizedBox(width: 100,)
+                SizedBox(width: 100),
               ],
             ),
           ),
           Positioned(
-            left:110,
+            left: 110,
             top: 0,
             child: Image.asset(
               'assets/images/47629082c1e87efd4f845d79f79a60db33f33766.png',
