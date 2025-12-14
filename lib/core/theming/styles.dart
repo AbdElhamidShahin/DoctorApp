@@ -46,3 +46,15 @@ TextStyle textStyle15 = TextStyle(
   fontWeight: FontWeight.w400,
   color: AppColors.graydark,
 );
+TextStyle textStyle18WhiteMedium = TextStyle(
+  fontSize: 18.sp,
+  fontWeight: FontWeight.w500,
+  color: Colors.white,
+);
+
+
+TextStyle textStyle12BlueRegular = TextStyle(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.w400,
+  color: AppColors.blueMain,
+);

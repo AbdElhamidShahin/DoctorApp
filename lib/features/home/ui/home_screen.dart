@@ -1,4 +1,5 @@
 import 'package:doctor_app_flutter/features/home/ui/widgets/custom_top_bar_ohme.dart';
+import 'package:doctor_app_flutter/features/home/ui/widgets/doctors_blue_container.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,6 +14,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(children: [
 
             CustomTopBarHome(),
+            DoctorsBlueContainer(),
 
           ]),
         ),
