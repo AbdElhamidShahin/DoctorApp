@@ -1,3 +1,4 @@
+import 'package:doctor_app_flutter/features/home/ui/widgets/custom_top_bar_ohme.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,15 +7,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text("Home Screen"),
-      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(children: [
 
-      // create a blue container with centered text
-      body: Container(
-        child: const Center(
-          child: Text("Hello, World!", style: TextStyle(fontSize: 24)),
+            CustomTopBarHome(),
+
+          ]),
         ),
       ),
     );
