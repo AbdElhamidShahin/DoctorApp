@@ -63,3 +63,13 @@ TextStyle textStyle18DarkBlueSemiBold = TextStyle(
   fontWeight: FontWeight.w600,
   color: AppColors.darkBlue,
 );
+TextStyle textStyle16DarkBlueBold = TextStyle(
+  fontSize: 16.sp,
+  fontWeight: FontWeight.w700,
+  color: AppColors.darkBlue,
+);
+TextStyle textStyle12grayMiddle = TextStyle(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.w500,
+  color: AppColors.gray,
+);
