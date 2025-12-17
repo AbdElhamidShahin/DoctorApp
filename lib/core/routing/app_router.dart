@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/home/logic/home_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/logic/cubit/login_cubit.dart';
 import '../../features/login/ui/loginScreen.dart';
@@ -42,7 +43,11 @@ abstract class AppRouter {
       GoRoute(
         path: routes.HomeScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return HomeScreen();
+          return BlocProvider(
+            create: (BuildContext context) =>
+                getIt<HomeCubit>()..getSpecialization(),
+            child: HomeScreen(),
+          );
         },
       ),
     ],
