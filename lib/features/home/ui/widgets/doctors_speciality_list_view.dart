@@ -10,7 +10,7 @@ class DoctorsSpecialityListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70.h,
+      height: 100.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 8,
@@ -20,14 +20,14 @@ class DoctorsSpecialityListView extends StatelessWidget {
             child: Column(
               children: [
                 CircleAvatar(
-                  radius: 24.0,
+                  radius: 40.0,
                   backgroundColor: AppColors.bluelight,
                   child: Image.asset(
-                    height: 24,width: 24,
+                    height: 40.h,width: 40.w,
                     'assets/images/a0fea4bcf76e008e0de983728f913f0d8b4d837c.png',
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Text(
                   "General",
                   style: textStyle12BlueRegular.copyWith(
