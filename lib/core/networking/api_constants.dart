@@ -21,3 +21,11 @@ class ApiErrors {
   static const String retryAgainMessage = "retry_again_message";
   static const String ok = "Ok";
 }
+//{
+//   "name": "Mahmoud Ahmed",
+//   "email": "mahmoud@test.com",
+//   "phone": "012056873721",
+//   "gender":  0,
+//   "password": "2932018",
+//   "password_confirmation": "2932018"
+// }
