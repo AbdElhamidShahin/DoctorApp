@@ -8,8 +8,11 @@ import 'package:doctor_app_flutter/features/home/ui/widgets/doctors_speciality_l
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+<<<<<<< HEAD
 
 import '../data/model/home_model.dart';
+=======
+>>>>>>> 3337d2f9be5d79ab4d397d326fd5b22343bc1fe9
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -33,6 +36,7 @@ class HomeScreen extends StatelessWidget {
                   if (state is HomeLoadingState) {
                     return const Center(child: CircularProgressIndicator());
                   } else if (state is HomeSuccessState) {
+<<<<<<< HEAD
                     final specializationList =
                         state.specializationResponse.data ?? [];
 
@@ -40,6 +44,9 @@ class HomeScreen extends StatelessWidget {
                         specializationList.isNotEmpty
                         ? specializationList[0].doctors
                         : [];
+=======
+                    final specializationList = state.specializationResponse.data ?? [];
+>>>>>>> 3337d2f9be5d79ab4d397d326fd5b22343bc1fe9
                     return Expanded(
                       child: SingleChildScrollView(
                         child: Column(
@@ -48,8 +55,12 @@ class HomeScreen extends StatelessWidget {
                               specializationList: specializationList,
                             ),
                             SizedBox(height: 24.h),
+<<<<<<< HEAD
 
                             DoctorsListView(doctorsList: doctorsList),
+=======
+                            // هنا ستضع DoctorsListView() لاحقاً
+>>>>>>> 3337d2f9be5d79ab4d397d326fd5b22343bc1fe9
                           ],
                         ),
                       ),

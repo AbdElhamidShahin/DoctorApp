@@ -10,7 +10,10 @@ class HomeLoadingState extends HomeState {}
 
 class HomeSuccessState extends HomeState {
   final SpecializationsResponse specializationResponse;
+<<<<<<< HEAD
   // احذف متغير doctors المنفصل إذا كان الأطباء يأتون داخل التخصصات
+=======
+>>>>>>> 3337d2f9be5d79ab4d397d326fd5b22343bc1fe9
   HomeSuccessState(this.specializationResponse);
 }
 class HomeErrorState extends HomeState {
