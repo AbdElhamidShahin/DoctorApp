@@ -16,11 +16,11 @@ class LoginResponse {
 
 @JsonSerializable()
 class UserData {
-  String? tokin;
+  String? token;
   @JsonKey(name: "username")
   String? userName;
 
-  UserData(this.tokin, this.userName);
+  UserData(this.token, this.userName);
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);
 }

@@ -7,15 +7,18 @@ import 'core/di/dependency_injection.dart';
 import 'core/theming/colors.dart';
 
 void main() async {
-  setupGetIt();
+  await setupGetIt();
   await ScreenUtil.ensureScreenSize();
 
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(statusBarColor: AppColors.blueMain),
   );
-
   runApp(const DocApp());
+
 }
+
+
+
 // flutter build apk --flavor Production -t lib/main_production.dart
 //flutter run  --flavor Development -t lib/main_development.dart
 //fastlane android firebase_distribution
