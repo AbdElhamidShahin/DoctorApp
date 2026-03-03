@@ -9,11 +9,10 @@ class HomeInitialState extends HomeState {}
 class HomeLoadingState extends HomeState {}
 
 class HomeSuccessState extends HomeState {
-  SpecializationItem specializationItem;
-
-  HomeSuccessState(this.specializationItem);
+  final SpecializationsResponse specializationResponse;
+  // احذف متغير doctors المنفصل إذا كان الأطباء يأتون داخل التخصصات
+  HomeSuccessState(this.specializationResponse);
 }
-
 class HomeErrorState extends HomeState {
   final ErrorHandler errorHandler;
 

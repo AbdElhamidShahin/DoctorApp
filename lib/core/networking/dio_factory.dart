@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../helpers/shared_pref_helper.dart';
+
 class DioFactory {
   /// private constractor as I dont want to allow creating an instance of this class
 
@@ -25,12 +27,28 @@ class DioFactory {
 
   static void addDioInterceptor() {
     dio?.interceptors.add(
-      PrettyDioLogger(
-        //بتعرض شكل requst بتاع الكود
-        requestBody: true, //يعرض بيانات الطلب
-        requestHeader: true, //يعرض الرد
-        responseHeader: true, //يسهل عليك تشوف الأخطاء
+      InterceptorsWrapper(
+        onRequest: (options, handler) async {
+          // 1. جلب التوكن من الذاكرة
+          String token = await SharedPrefHelper.getString('userToken');
+
+          // 2. إضافة التوكن للهيدر
+          options.headers['Authorization'] = 'Bearer $token';
+
+          // 3. إخبار السيرفر أننا نريد JSON (لتجنب صفحة الـ HTML)
+          options.headers['Accept'] = 'application/json';
+
+          return handler.next(options);
+        },
       ),
+    );
+    dio?.interceptors.add(
+      PrettyDioLogger(
+        requestBody: true,
+        requestHeader: true,
+        responseHeader: true,
+      ),
+
     );
   }
 }
